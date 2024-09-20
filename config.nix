@@ -2,7 +2,6 @@
 {
   imports = [ ./plugins ];
 
-  fzefzef = "";
 
   viAlias = true;
   vimAlias = true;
@@ -20,7 +19,7 @@
     foldlevel = 20;
     foldexpr = "nvim_treesitter#foldexpr()";
   };
-  auto_cmd = [
+  autoCmd = [
     {
       event = "BufWritePre";
       pattern = "*";
