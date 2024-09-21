@@ -2,7 +2,6 @@
 {
   imports = [ ./plugins ];
 
-
   viAlias = true;
   vimAlias = true;
   globals = {
@@ -19,17 +18,6 @@
     foldlevel = 20;
     foldexpr = "nvim_treesitter#foldexpr()";
   };
-  autoCmd = [
-    {
-      event = "BufWritePre";
-      pattern = "*";
-      callback = ''
-      function(args)
-        require("conform").format({ bufnr = args.buf })
-      end
-      '';
-    }
-  ];
   colorschemes.catppuccin = {
     enable = true;
     settings = {

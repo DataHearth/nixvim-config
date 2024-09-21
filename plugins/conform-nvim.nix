@@ -33,9 +33,9 @@
         toml = [ "taplo" ];
         "_" = [ "trim_whitespace" ];
       };
-      format_on_save = { 
+      format_on_save = {
         lsp_fallback = "fallback";
-        timeout_ms = 5000;
+        timeout_ms = 3000;
       };
     };
   };
