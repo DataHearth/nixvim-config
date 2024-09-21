@@ -6,5 +6,6 @@
     ./gitsigns.nix
     ./conform-nvim.nix
     ./telescope.nix
+    ./treesitter.nix
   ];
 }

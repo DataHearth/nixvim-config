@@ -14,9 +14,7 @@
     softtabstop = 2;
     shiftwidth = 2;
     number = true;
-    foldmethod = "expr";
     foldlevel = 20;
-    foldexpr = "nvim_treesitter#foldexpr()";
   };
   colorschemes.catppuccin = {
     enable = true;
@@ -38,7 +36,6 @@
     comment.enable = true; # Comment code
     indent-blankline.enable = true;
     todo-comments.enable = true; # Comments highlighting
-    treesitter.enable = true;
     crates-nvim.enable = true; # Crate auto-complete and verification
     diffview.enable = true; # Git diff view
     illuminate.enable = true; # Highlight words
@@ -52,6 +49,10 @@
     nix.enable = true;
     nvim-autopairs.enable = true; # Auto close symbols
     which-key.enable = true;
+    yazi.enable = true;
+    lazygit.enable = true;
+    ts-autotag.enable = true;
+    bufferline.enable = true;
 
     # Custom
     harpoon = {
@@ -68,7 +69,6 @@
     };
   };
   extraPlugins = with pkgs; [
-    vimPlugins.nvim-ts-autotag
     (vimUtils.buildVimPlugin {
       name = "earthly.vim";
       src = fetchFromGitHub {
@@ -79,7 +79,4 @@
       };
     })
   ];
-  extraConfigLua = ''
-    require('nvim-ts-autotag').setup()
-  '';
 }
