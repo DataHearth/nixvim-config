@@ -12,12 +12,10 @@
         javascript = [
           "prettierd"
           "eslint_d"
-          "eslint"
         ];
         typescript = [
           "prettierd"
           "eslint_d"
-          "eslint"
         ];
         css = [ "prettierd" ];
         html = [ "prettierd" ];
@@ -28,7 +26,6 @@
         svelte = [
           "prettierd"
           "eslint_d"
-          "eslint"
         ];
         toml = [ "taplo" ];
         "_" = [ "trim_whitespace" ];
