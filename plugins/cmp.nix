@@ -31,12 +31,27 @@
         '';
       };
       sources = [
-        { name = "buffer"; }
-        { name = "luasnip"; }
-        { name = "nvim_lsp"; }
         { name = "nvim_lsp_signature_help"; }
         { name = "nvim_lua"; }
-        { name = "path"; }
+        {
+          name = "buffer";
+          group_index = 2;
+        }
+        {
+          name = "luasnip";
+          priority = 6;
+          group_index = 1;
+        }
+        {
+          name = "nvim_lsp";
+          priority = 5;
+          group_index = 1;
+        }
+        {
+          name = "path";
+          priority = 2;
+          group_index = 1;
+        }
       ];
       completion = {
         keyword_length = 2;

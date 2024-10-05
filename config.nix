@@ -27,12 +27,6 @@
   plugins = {
     barbecue.enable = true; # Symbol bar
     chadtree.enable = true; # Tree navigation
-    cmp-buffer.enable = true;
-    cmp-nvim-lsp-signature-help.enable = true;
-    cmp-nvim-lsp.enable = true;
-    cmp-nvim-lua.enable = true;
-    cmp-path.enable = true;
-    cmp_luasnip.enable = true;
     comment.enable = true; # Comment code
     indent-blankline.enable = true;
     todo-comments.enable = true; # Comments highlighting
