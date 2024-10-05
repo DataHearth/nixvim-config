@@ -53,6 +53,8 @@
     lazygit.enable = true;
     ts-autotag.enable = true;
     bufferline.enable = true;
+    earthly.enable = true;
+    web-devicons.enable = true;
 
     # Custom
     harpoon = {
@@ -68,15 +70,4 @@
       };
     };
   };
-  extraPlugins = with pkgs; [
-    (vimUtils.buildVimPlugin {
-      name = "earthly.vim";
-      src = fetchFromGitHub {
-        owner = "earthly";
-        repo = "earthly.vim";
-        rev = "cb0440a357a09fb9234ece56a6b09e04d25c1b1d";
-        hash = "sha256-myMGiOiU9/xmdMJOvaJySLBvXS/xTAMULVaKGaVODw0=";
-      };
-    })
-  ];
 }
