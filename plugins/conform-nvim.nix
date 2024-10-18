@@ -10,21 +10,21 @@
           "golines"
         ];
         javascript = [
-          "prettierd"
+          "prettier"
           "eslint_d"
         ];
         typescript = [
-          "prettierd"
+          "prettier"
           "eslint_d"
         ];
-        css = [ "prettierd" ];
-        html = [ "prettierd" ];
-        json = [ "prettierd" ];
+        css = [ "prettier" ];
+        html = [ "prettier" ];
+        json = [ "prettier" ];
         nix = [ "nixfmt" ];
         python = [ "ruff_format" ];
         rust = [ "rustfmt" ];
         svelte = [
-          "prettierd"
+          "prettier"
           "eslint_d"
         ];
         toml = [ "taplo" ];
