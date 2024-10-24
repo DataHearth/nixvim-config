@@ -8,5 +8,6 @@
     ./telescope.nix
     ./treesitter.nix
     ./avante.nix
+    ./render-markdown.nix
   ];
 }
