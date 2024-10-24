@@ -7,5 +7,6 @@
     ./conform-nvim.nix
     ./telescope.nix
     ./treesitter.nix
+    ./avante.nix
   ];
 }

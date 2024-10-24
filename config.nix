@@ -45,6 +45,7 @@
     web-devicons.enable = true;
     which-key.enable = true;
     yazi.enable = true;
+    copilot-lua.enable = true;
 
     luasnip = {
       enable = true;
