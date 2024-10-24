@@ -17,6 +17,10 @@
       {
         "language": "license",
         "path": "./license.json"
+      },
+      {
+        "language": "sql",
+        "path": "./sql.json"
       }
     ]
   }

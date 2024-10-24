@@ -1,0 +1,148 @@
+{
+  "sql.table.create": {
+    "prefix": "ctable",
+    "body": [
+      "CREATE TABLE ${1:table_name} (",
+      "\t${2:column_name} ${3:data_type}${4: PRIMARY KEY},",
+      "\t$0",
+      ");"
+    ],
+    "description": "Create a new table"
+  },
+  "sql.table.alter": {
+    "prefix": "atable",
+    "body": "ALTER TABLE ${1:table_name} ${2|ADD,DROP,MODIFY,ALTER|} ${3:column_name} ${4:data_type};",
+    "description": "Alter table structure"
+  },
+  "sql.table.drop": {
+    "prefix": "dtable",
+    "body": "DROP TABLE ${1:table_name};",
+    "description": "Drop a table"
+  },
+  "sql.select.basic": {
+    "prefix": "sel",
+    "body": "SELECT ${1:*} FROM ${2:table_name}${3: WHERE ${4:condition}};",
+    "description": "Basic SELECT query"
+  },
+  "sql.select.join": {
+    "prefix": "join",
+    "body": [
+      "SELECT ${1:*}",
+      "FROM ${2:table1}",
+      "${3|INNER JOIN,LEFT JOIN,RIGHT JOIN,FULL JOIN|} ${4:table2}",
+      "ON ${5:$2.id = $4.id}",
+      "${6:WHERE ${7:condition}};"
+    ],
+    "description": "SELECT with JOIN"
+  },
+  "sql.select.group": {
+    "prefix": "group",
+    "body": [
+      "SELECT ${1:column1}, ${2:COUNT(*)}",
+      "FROM ${3:table_name}",
+      "GROUP BY ${1:column1}",
+      "${4:HAVING ${5:condition}};"
+    ],
+    "description": "SELECT with GROUP BY"
+  },
+  "sql.insert": {
+    "prefix": "ins",
+    "body": [
+      "INSERT INTO ${1:table_name} (${2:columns})",
+      "VALUES (${3:values});"
+    ],
+    "description": "Insert new record"
+  },
+  "sql.insert.multiple": {
+    "prefix": "insm",
+    "body": [
+      "INSERT INTO ${1:table_name} (${2:columns})",
+      "VALUES",
+      "\t(${3:values1}),",
+      "\t(${4:values2})${5:,}",
+      "\t$0;"
+    ],
+    "description": "Insert multiple records"
+  },
+  "sql.update": {
+    "prefix": "upd",
+    "body": [
+      "UPDATE ${1:table_name}",
+      "SET ${2:column1} = ${3:value1}",
+      "WHERE ${4:condition};"
+    ],
+    "description": "Update records"
+  },
+  "sql.delete": {
+    "prefix": "del",
+    "body": ["DELETE FROM ${1:table_name}", "WHERE ${2:condition};"],
+    "description": "Delete records"
+  },
+  "sql.index.create": {
+    "prefix": "idx",
+    "body": "CREATE ${1|INDEX,UNIQUE INDEX|} ${2:index_name} ON ${3:table_name} (${4:column_name});",
+    "description": "Create an index"
+  },
+  "sql.constraint.foreign": {
+    "prefix": "fk",
+    "body": [
+      "CONSTRAINT ${1:fk_name}",
+      "FOREIGN KEY (${2:column_name})",
+      "REFERENCES ${3:parent_table}(${4:parent_column})"
+    ],
+    "description": "Foreign key constraint"
+  },
+  "sql.transaction": {
+    "prefix": "tran",
+    "body": ["BEGIN TRANSACTION;", "\t$0", "COMMIT;"],
+    "description": "Transaction block"
+  },
+  "sql.view.create": {
+    "prefix": "cview",
+    "body": [
+      "CREATE VIEW ${1:view_name} AS",
+      "SELECT ${2:columns}",
+      "FROM ${3:table_name}",
+      "WHERE ${4:condition};"
+    ],
+    "description": "Create a view"
+  },
+  "sql.procedure.create": {
+    "prefix": "proc",
+    "body": [
+      "CREATE PROCEDURE ${1:procedure_name} (",
+      "\t${2:parameter1} ${3:type1}${4:,}",
+      "\t$5",
+      ")",
+      "AS",
+      "BEGIN",
+      "\t$0",
+      "END;"
+    ],
+    "description": "Create a stored procedure"
+  },
+  "sql.case": {
+    "prefix": "case",
+    "body": [
+      "CASE",
+      "\tWHEN ${1:condition1} THEN ${2:result1}",
+      "\tWHEN ${3:condition2} THEN ${4:result2}",
+      "\tELSE ${5:result3}",
+      "END"
+    ],
+    "description": "CASE statement"
+  },
+  "sql.subquery": {
+    "prefix": "sub",
+    "body": [
+      "SELECT ${1:*}",
+      "FROM ${2:table_name}",
+      "WHERE ${3:column_name} IN (",
+      "\tSELECT ${4:column_name}",
+      "\tFROM ${5:table_name}",
+      "\tWHERE ${6:condition}",
+      ");"
+    ],
+    "description": "Subquery template"
+  }
+}

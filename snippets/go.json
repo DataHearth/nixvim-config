@@ -1,71 +1,72 @@
 {
-  "type function declaration": {
+  "go.type.function": {
     "prefix": "tyf",
-    "body": "type ${1:name} func($3) $4",
-    "description": "Snippet for a type function declaration"
+    "body": "type $1 func($2) $3",
+    "description": "Type function declaration"
   },
-  "type interface declaration": {
+  "go.type.interface": {
     "prefix": "tyi",
-    "body": "type ${1:name} interface {\n\t$0\n}",
-    "description": "Snippet for a type interface"
+    "body": "type $1 interface {\n\t$0\n}",
+    "description": "Interface type declaration"
   },
-  "type struct declaration": {
+  "go.type.struct": {
     "prefix": "tys",
-    "body": "type ${1:name} struct {\n\t$0\n}",
-    "description": "Snippet for a struct declaration"
+    "body": "type $1 struct {\n\t$0\n}",
+    "description": "Struct type declaration"
   },
-  "package main and main function": {
+  "go.package.main": {
     "prefix": "pkgm",
     "body": "package main\n\nfunc main() {\n\t$0\n}",
-    "description": "Snippet for main package & function"
+    "description": "Package main with main function"
   },
-  "function declaration": {
+  "go.function": {
     "prefix": "func",
     "body": "func $1($2) $3 {\n\t$0\n}",
-    "description": "Snippet for function declaration"
+    "description": "Function declaration"
   },
-  "if err != nil": {
+  "go.error.check": {
     "prefix": "ir",
-    "body": "if err != nil {\n\t${1:return ${2:nil, }${3:err}}\n}",
-    "description": "Snippet for if err != nil"
+    "body": "if err != nil {\n\t$0\n}",
+    "description": "Error nil check"
   },
-  "http handler declaration": {
+  "go.http.handler": {
     "prefix": "hand",
     "body": "func $1(${2:w} http.ResponseWriter, ${3:r} *http.Request) {\n\t$0\n}",
-    "description": "Snippet for http handler declaration"
+    "description": "HTTP handler function"
   },
-  "table driven test": {
+  "go.test.table": {
     "prefix": "tdt",
     "body": "func Test$1(t *testing.T) {\n\ttestCases := []struct {\n\t\tdesc\tstring\n\t\t$2\n\t}{\n\t\t{\n\t\t\tdesc: \"$3\",\n\t\t\t$4\n\t\t},\n\t}\n\tfor _, tC := range testCases {\n\t\tt.Run(tC.desc, func(t *testing.T) {\n\t\t\t$0\n\t\t})\n\t}\n}",
-    "description": "Snippet for table driven test"
+    "description": "Table-driven test template"
   },
-  "json tag": {
+  "go.tag.json": {
     "prefix": "json",
     "body": "`json:\"$1\"`",
-    "description": "Snippet for struct json tag"
+    "description": "JSON struct tag"
   },
-  "for range statement": {
+  "go.loop.range": {
     "prefix": "forr",
-    "body": "for ${1:_, }${2:v} := range ${3:v} {\n\t$0\n}",
-    "description": "Snippet for a for range loop"
+    "body": "for ${1:_, }${2:v} := range $3 {\n\t$0\n}",
+    "description": "Range-based for loop"
   },
-  "for statement": {
+  "go.loop.infinite": {
     "prefix": "for",
-    "body": "for ${1}{\n\t$0\n}",
-    "description": "Snippet for a pure for loop"
+    "body": "for $1{\n\t$0\n}",
+    "description": "Infinite for loop"
   },
-  "for n statement": {
+  "go.loop.counter": {
     "prefix": "fori",
     "body": "for ${1:i} := ${2:0}; $1 < ${3:count}; $1${4:++} {\n\t$0\n}",
-    "description": "Snippet for a for loop"
+    "description": "Counter-based for loop"
   },
-  "map declaration": {
+  "go.type.map": {
     "prefix": "map",
-    "body": "map[${1:type}]${2:type}",
-    "description": "Snippet for a map"
+    "body": "map[$1]$2",
+    "description": "Map type declaration"
   },
-  "if err := func(); err != nil": {
-    "pref": "ief",
-    "body": "if err := $1; err != nil {\n\t${2:return}}"
+  "go.error.inline": {
+    "prefix": "ief",
+    "body": "if ${1:err} := $2; err != nil {\n\t$0\n}",
+    "description": "Inline error check"
   }
 }

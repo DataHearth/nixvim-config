@@ -1,28 +1,20 @@
 {
-  "ifelse": {
+  "nix.control.ifelse": {
     "prefix": "if",
-    "body": [
-      "if $1 then",
-      "  $2",
-      "else$0"
-    ],
-    "description": "if-else block"
+    "body": ["if $1 then", "  $2", "else$0"],
+    "description": "If-else control structure"
   },
-  "letin": {
+  "nix.control.letin": {
     "prefix": "let",
-    "body": [
-      "let",
-      "  $1",
-      "in $0"
-    ],
-    "description": "let-in block"
+    "body": ["let", "  $1", "in $0"],
+    "description": "Let-in binding block"
   },
-  "hash": {
+  "nix.hash.empty": {
     "prefix": "hash",
     "body": "\"${1:sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=}\";",
-    "description": "Empty hash"
+    "description": "Empty SHA256 hash template"
   },
-  "fetchFrom": {
+  "nix.fetch.git": {
     "prefix": "fetchFrom",
     "body": [
       "fetchFrom${1|GitHub,GitLab,Gitea,Gitiles,BitBucket,Savannah,RepoOrCz,SourceHut|} {",
@@ -32,9 +24,9 @@
       "  hash = \"${5:sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=}\";",
       "};"
     ],
-    "description": "fetchFromGitHub, or any other common fetcher from Nixpkgs"
+    "description": "Git repository fetcher for various platforms"
   },
-  "fetchurl": {
+  "nix.fetch.url": {
     "prefix": "fetchurl",
     "body": [
       "fetchurl {",
@@ -42,21 +34,14 @@
       "  hash = \"${2:sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=}\";",
       "};"
     ],
-    "description": "fetchurl with default empty hash"
+    "description": "URL fetcher with hash verification"
   },
-  "package-arguments": {
+  "nix.package.args": {
     "prefix": "pkg",
-    "body": [
-      "{ lib",
-      ", ${1:stdenv}",
-      ", $2",
-      "}:",
-      "",
-      "$0"
-    ],
-    "description": "Package arguments, starting with { lib"
+    "body": ["{ lib", ", ${1:stdenv}", ", $2", "}:", "", "$0"],
+    "description": "Package argument set with lib"
   },
-  "stdenv.mkDerivation": {
+  "nix.derivation.standard": {
     "prefix": "mkd",
     "body": [
       "stdenv.mkDerivation (finalAttrs: {",
@@ -80,9 +65,9 @@
       "  };",
       "})"
     ],
-    "description": "Nixpkgs' stdenv.mkDerivation template"
+    "description": "Standard derivation template"
   },
-  "meta": {
+  "nix.meta.standard": {
     "prefix": "meta",
     "body": [
       "meta = {",
@@ -92,6 +77,6 @@
       "  maintainers = with lib.maintainers; [ $0 ];",
       "};"
     ],
-    "description": "Nixpkgs' minimal meta attribute set"
+    "description": "Standard meta attributes template"
   }
 }
