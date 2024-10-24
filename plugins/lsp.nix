@@ -18,11 +18,11 @@
       html.enable = true;
       htmx.enable = true;
       jsonls.enable = true;
-      lua-ls.enable = true;
+      lua_ls.enable = true;
       nixd.enable = true;
-      ruff-lsp.enable = true;
+      ruff_lsp.enable = true;
       pyright.enable = true;
-      rust-analyzer = {
+      rust_analyzer = {
         enable = true;
         installCargo = true;
         installRustc = true;
@@ -30,7 +30,7 @@
       svelte.enable = true;
       tailwindcss.enable = true;
       taplo.enable = true;
-      ts-ls.enable = true;
+      ts_ls.enable = true;
       yamlls.enable = true;
     };
     keymaps = {
