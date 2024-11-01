@@ -79,29 +79,35 @@
           end
         '';
       };
-      window = {
-        completion = {
-          winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None";
-          col_offset = -3;
-          side_padding = 0;
-          border = "rounded";
-        };
-        window =
-          let
-            bordered = {
-              border = "rounded";
-              col_offset = 0;
-              scrollbar = true;
-              scrolloff = 0;
-              side_padding = 1;
-              winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None";
-              zindex = 1001;
-            };
-          in
-          {
-            completion = bordered;
-            documentation = bordered;
+      window =
+        let
+          bordered = {
+            border = "rounded";
+            col_offset = 0;
+            scrollbar = true;
+            scrolloff = 0;
+            side_padding = 1;
+            winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None";
+            zindex = 1001;
           };
+        in
+        {
+          completion = bordered;
+          documentation = bordered;
+        };
+      sorting = {
+        priority_weight = 2;
+        comparators =
+          let
+            require = "require('cmp.config.compare')";
+          in
+          [
+            "${require}.locality"
+            "${require}.recently_used"
+            "${require}.score"
+            "${require}.offset"
+            "${require}.order"
+          ];
       };
     };
   };
