@@ -1,3 +1,4 @@
+{ pkgs, lib, ... }:
 {
   plugins.conform-nvim = {
     enable = true;
@@ -28,6 +29,18 @@
           "eslint_d"
         ];
         toml = [ "taplo" ];
+        sh = [
+          "shfmt"
+          "shellcheck"
+        ];
+        bash = [
+          "shfmt"
+          "shellcheck"
+        ];
+        zsh = [
+          "shfmt"
+          "shellcheck"
+        ];
         "_" = [ "trim_whitespace" ];
       };
       format_on_save = {
