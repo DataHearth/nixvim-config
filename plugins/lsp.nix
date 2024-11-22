@@ -20,7 +20,7 @@
       jsonls.enable = true;
       lua_ls.enable = true;
       nixd.enable = true;
-      ruff_lsp.enable = true;
+      ruff.enable = true;
       pyright.enable = true;
       rust_analyzer = {
         enable = true;
