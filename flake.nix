@@ -13,8 +13,6 @@
       systems = [
         "x86_64-linux"
         "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
       ];
 
       perSystem =
@@ -27,14 +25,53 @@
             module = import ./config.nix;
             extraSpecialArgs = { };
           };
-          nvim = nixvim'.makeNixvimWithModule nixvimModule;
+          nvim_package = nixvim'.makeNixvimWithModule nixvimModule;
         in
         {
-          checks.
-            default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
-
-          packages.
-            default = nvim;
+          checks.default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
+          packages.default = nvim_package;
         };
+
+      flake = {
+        nixosModules.default =
+          { pkgs, ... }:
+          {
+            imports = [ nixvim.nixosModules.nixvim ];
+
+            programs.nixvim = {
+              imports = [ ./config.nix ];
+              enable = true;
+              defaultEditor = true;
+            };
+
+            environment.systemPackages = with pkgs; [
+              # conform-nvim - Golang tools
+              gofumpt
+              golines
+              go-tools
+
+              # conform-nvim - Lua tools
+              stylua
+
+              # conform-nvim - Nix tools
+              nixfmt-rfc-style
+
+              # conform-nvim - JS/TS/HTML/CSS tools
+              nodePackages.prettier
+              eslint_d
+
+              # conform-nvim - TOML tools
+              taplo
+
+              # conform-nvim - Python tools
+              ruff
+
+              # conform-nvim - SHish tools
+              shfmt
+              shellcheck
+            ];
+          };
+
+      };
     };
 }
