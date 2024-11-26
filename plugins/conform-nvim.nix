@@ -1,7 +1,7 @@
-{ pkgs, lib, ... }:
 {
   plugins.conform-nvim = {
     enable = true;
+
     settings = {
       log_level = "error";
       formatters_by_ft = {

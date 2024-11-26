@@ -2,6 +2,7 @@
 {
   plugins.cmp = {
     enable = true;
+
     settings = {
       mapping = {
         "<C-Space>" = "cmp.mapping.complete()";
@@ -30,6 +31,7 @@
           end, {'i', 's'})
         '';
       };
+
       sources = [
         { name = "nvim_lsp_signature_help"; }
         { name = "nvim_lua"; }

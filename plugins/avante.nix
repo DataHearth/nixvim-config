@@ -3,6 +3,8 @@
   plugins = {
     copilot-lua.enable = true;
     dressing.enable = true;
+    nui.enable = true;
+
     avante = {
       enable = true;
       settings = {
@@ -10,16 +12,17 @@
         auto_suggestions_frequency = "copilot";
       };
     };
+
     render-markdown = {
       enable = true;
       settings = {
         file_types = [ "Avante" ];
+        latex.enabled = false;
       };
     };
   };
 
   extraPlugins = with pkgs; [
-    vimPlugins.nui-nvim
     vimPlugins.plenary-nvim
   ];
 }

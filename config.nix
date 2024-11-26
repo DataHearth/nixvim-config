@@ -1,13 +1,12 @@
-{ pkgs, ... }:
 {
   imports = [ ./plugins ];
 
   viAlias = true;
   vimAlias = true;
-  globals = {
-    mapleader = " ";
-  };
+  keymaps = import ./keymaps;
+  globals.mapleader = " ";
   colorscheme = "catppuccin";
+
   opts = {
     tabstop = 2;
     expandtab = true;
@@ -16,14 +15,16 @@
     number = true;
     foldlevel = 20;
   };
+
   colorschemes.catppuccin = {
     enable = true;
+
     settings = {
       transparent_background = true;
       flavour = "macchiato";
     };
   };
-  keymaps = import ./keymaps;
+
   plugins = {
     barbecue.enable = true; # Symbol bar
     bufferline.enable = true;
@@ -49,20 +50,6 @@
     luasnip = {
       enable = true;
       fromVscode = [ { paths = ./snippets; } ];
-    }; # Snippets
-
-    # Custom
-    harpoon = {
-      enable = true;
-      package = pkgs.vimUtils.buildVimPlugin {
-        name = "harpoon2";
-        src = pkgs.fetchFromGitHub {
-          owner = "ThePrimeagen";
-          repo = "harpoon";
-          rev = "0378a6c428a0bed6a2781d459d7943843f374bce";
-          hash = "sha256-FZQH38E02HuRPIPAog/nWM55FuBxKp8AyrEldFkoLYk=";
-        };
-      };
     };
   };
 }
