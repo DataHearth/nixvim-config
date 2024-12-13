@@ -26,7 +26,15 @@
       tailwindcss.enable = true;
       taplo.enable = true;
       ts_ls.enable = true;
-      yamlls.enable = true;
+      yamlls = {
+        enable = true;
+        settings = {
+          schemas = {
+            "https://json.schemastore.org/kestra-0.19.0.json" = "kestra/**/*.{yaml,yml}";
+          };
+          schemaStore.enable = true;
+        };
+      };
 
       gopls = {
         enable = true;
