@@ -31,6 +31,7 @@
         settings = {
           schemas = {
             "https://json.schemastore.org/kestra-0.19.0.json" = "kestra/**/*.{yaml,yml}";
+            "https://json.schemastore.org/github-action.json" = ".github/workflows/*.{yaml,yml}";
           };
           schemaStore.enable = true;
         };
