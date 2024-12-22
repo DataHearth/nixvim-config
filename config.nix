@@ -30,7 +30,7 @@
     bufferline.enable = true;
     chadtree.enable = true; # Tree navigation
     comment.enable = true; # Comment code
-    crates-nvim.enable = true; # Crate auto-complete and verification
+    crates.enable = true; # Crate auto-complete and verification
     diffview.enable = true; # Git diff view
     earthly.enable = true;
     illuminate.enable = true; # Highlight words
