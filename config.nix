@@ -51,5 +51,10 @@
       enable = true;
       fromVscode = [ { paths = ./snippets; } ];
     };
+    schemastore = {
+      enable = true;
+      yaml.enable = true;
+      json.enable = true;
+    };
   };
 }

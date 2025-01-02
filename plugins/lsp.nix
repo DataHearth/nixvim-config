@@ -26,16 +26,7 @@
       tailwindcss.enable = true;
       taplo.enable = true;
       ts_ls.enable = true;
-      yamlls = {
-        enable = true;
-        settings = {
-          schemas = {
-            "https://json.schemastore.org/kestra-0.19.0.json" = "kestra/**/*.{yaml,yml}";
-            "https://json.schemastore.org/github-workflow.json" = ".github/workflows/*.{yaml,yml}";
-          };
-          schemaStore.enable = true;
-        };
-      };
+      yamlls.enable = true;
 
       gopls = {
         enable = true;
