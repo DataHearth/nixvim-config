@@ -1,4 +1,10 @@
 {
+  plugins.schemastore = {
+    enable = true;
+    yaml.enable = true;
+    json.enable = true;
+  };
+
   plugins.lsp = {
     enable = true;
     postConfig = ''
@@ -24,9 +30,14 @@
       ruff.enable = true;
       svelte.enable = true;
       tailwindcss.enable = true;
-      taplo.enable = true;
+
       ts_ls.enable = true;
       yamlls.enable = true;
+
+      taplo = {
+        enable = true;
+        rootDir = "require('lspconfig.util').root_pattern('*.toml', '.git')";
+      };
 
       gopls = {
         enable = true;
