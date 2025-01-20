@@ -1,5 +1,5 @@
 {
-  description = "A nixvim configuration";
+  description = "My NixVim configuration. It also includes a NixOS module with bundled dependencies.";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -69,6 +69,9 @@
               # conform-nvim - SHish tools
               shfmt
               shellcheck
+
+              # conform-nvim - SQL tools
+              sqlfluff
             ];
           };
 

@@ -41,6 +41,7 @@
           "shfmt"
           "shellcheck"
         ];
+        sql = [ "sqlfluff" ];
         "_" = [ "trim_whitespace" ];
       };
       format_on_save = {
