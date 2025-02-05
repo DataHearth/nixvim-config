@@ -2,6 +2,36 @@
   plugins.telescope = {
     enable = true;
 
+    settings = {
+      pickers = {
+        find_files.find_command =
+          let
+            ignore_patterns = [
+              ".git"
+              "node_modules"
+              "__pycache__"
+              "target"
+              ".direnv"
+              ".venv"
+              "venv"
+              ".ruff_cache"
+              "dist"
+            ];
+          in
+          (
+            [
+              "fd"
+              "--hidden"
+              "--no-ignore"
+            ]
+            ++ builtins.concatMap (pattern: [
+              "--exclude"
+              "**/${pattern}"
+            ]) ignore_patterns
+          );
+      };
+    };
+
     keymaps = {
       "<leader>ff" = {
         action = "find_files";
