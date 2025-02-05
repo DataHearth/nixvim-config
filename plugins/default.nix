@@ -1,12 +1,13 @@
 {
   imports = [
-    ./cmp.nix
-    ./lsp.nix
-    ./trouble.nix
-    ./gitsigns.nix
+    # ./avante.nix
+    # ./cmp.nix
+    ./blink.nix
     ./conform-nvim.nix
+    ./gitsigns.nix
+    ./lsp.nix
     ./telescope.nix
     ./treesitter.nix
-    ./avante.nix
+    ./trouble.nix
   ];
 }

@@ -36,7 +36,6 @@
     illuminate.enable = true; # Highlight words
     indent-blankline.enable = true;
     lazygit.enable = true;
-    lspkind.enable = true; # Beautify LSP
     lualine.enable = true; # Status line
     neogit.enable = true;
     nix.enable = true;
@@ -46,10 +45,5 @@
     web-devicons.enable = true;
     which-key.enable = true;
     yazi.enable = true;
-
-    luasnip = {
-      enable = true;
-      fromVscode = [ { paths = ./snippets; } ];
-    };
   };
 }
