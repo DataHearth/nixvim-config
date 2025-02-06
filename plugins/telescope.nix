@@ -23,6 +23,8 @@
               "fd"
               "--hidden"
               "--no-ignore"
+              "--type"
+              "file"
             ]
             ++ builtins.concatMap (pattern: [
               "--exclude"
