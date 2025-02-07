@@ -1,5 +1,24 @@
 { pkgs, ... }:
 {
+  extraPlugins = [
+    (pkgs.vimUtils.buildVimPlugin {
+      name = "colorful-menu";
+      src = pkgs.fetchFromGitHub {
+        owner = "xzbdmw";
+        repo = "colorful-menu.nvim";
+        rev = "37771361ce3bcb99448b9e760ca6f65d5831003e";
+        hash = "sha256-52wPIyuyi/eW/V2RsKTgit+//mMxHvcTzDi/gyrNbEg=";
+      };
+      nvimSkipModule = [
+        "repro_cmp"
+        "repro_blink"
+      ];
+    })
+  ];
+  extraConfigLua = ''
+    require('colorful-menu').setup({})
+  '';
+
   plugins = {
     blink-cmp-copilot.enable = true;
     copilot-lua = {
@@ -17,6 +36,7 @@
       enable = true;
       fromVscode = [ { paths = ../snippets; } ];
     };
+    lsp.capabilities = "capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities())";
 
     blink-cmp = {
       enable = true;
@@ -33,10 +53,6 @@
       settings = {
         snippets.preset = "luasnip";
         keymap.preset = "enter";
-        completion.list.selection = {
-          preselect = false;
-          auto_insert = true;
-        };
         sources.default = [
           "lsp"
           "path"
@@ -44,6 +60,40 @@
           "buffer"
           "copilot"
         ];
+        signature = {
+          enabled = true;
+          window.border = "single";
+        };
+
+        completion = {
+          menu = {
+            border = "single";
+            draw = {
+              columns = [
+                [
+                  "kind_icon"
+                  "label"
+                  # "label_description"
+                ]
+                [
+                  "kind"
+                ]
+              ];
+              components = {
+                label = {
+                  text.__raw = "function(ctx) return require('colorful-menu').blink_components_text(ctx) end";
+                  highlight.__raw = "function(ctx) return require('colorful-menu').blink_components_highlight(ctx) end";
+                };
+              };
+            };
+          };
+          documentation.window.border = "single";
+          list.selection = {
+            preselect = false;
+            auto_insert = true;
+          };
+        };
+
         sources.providers = {
           copilot = {
             name = "copilot";

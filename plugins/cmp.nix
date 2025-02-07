@@ -1,7 +1,7 @@
 { lib, ... }:
 {
   plugins = {
-    lspkind.enable = false;
+    lspkind.enable = true;
     luasnip = {
       enable = true;
       fromVscode = [ { paths = ../snippets; } ];
