@@ -54,8 +54,18 @@
       ruff.enable = true;
       svelte.enable = true;
       tailwindcss.enable = true;
-      ts_ls.enable = true;
       yamlls.enable = true;
+
+      ts_ls = {
+        enable = true;
+        rootDir = "require('lspconfig.util').root_pattern('package.json')";
+        extraOptions.single_file_support = false;
+      };
+
+      denols = {
+        enable = true;
+        rootDir = "require('lspconfig.util').root_pattern('deno.json', 'deno.jsonc')";
+      };
 
       taplo = {
         enable = true;
