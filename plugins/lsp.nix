@@ -5,6 +5,13 @@
     json.enable = true;
   };
 
+  keymaps = [
+    {
+      action = "<cmd>lua vim.lsp.buf.hover({border = 'rounded'})<cr>";
+      key = "<S-k>";
+    }
+  ];
+
   autoCmd = [
     # https://github.com/golang/tools/blob/master/gopls/doc/vim.md#imports-and-formatting
     {
@@ -31,15 +38,6 @@
 
   plugins.lsp = {
     enable = true;
-    postConfig = ''
-      local lsp = vim.lsp;
-      lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, {
-        border = "rounded",
-      })
-      lsp.handlers["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, {
-        border = "rounded",
-      })
-    '';
 
     servers = {
       bashls.enable = true;
@@ -92,7 +90,6 @@
     };
 
     keymaps.lspBuf = {
-      "<S-k>" = "hover";
       "<leader>a" = "code_action";
       "<leader>r" = "rename";
       "<leader>gd" = "definition";

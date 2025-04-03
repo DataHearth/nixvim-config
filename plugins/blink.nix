@@ -1,19 +1,7 @@
 { pkgs, ... }:
 {
-  extraPlugins = [
-    (pkgs.vimUtils.buildVimPlugin {
-      name = "colorful-menu";
-      src = pkgs.fetchFromGitHub {
-        owner = "xzbdmw";
-        repo = "colorful-menu.nvim";
-        rev = "37771361ce3bcb99448b9e760ca6f65d5831003e";
-        hash = "sha256-52wPIyuyi/eW/V2RsKTgit+//mMxHvcTzDi/gyrNbEg=";
-      };
-      nvimSkipModule = [
-        "repro_cmp"
-        "repro_blink"
-      ];
-    })
+  extraPlugins = with pkgs; [
+    vimPlugins.colorful-menu-nvim
   ];
   extraConfigLua = ''
     require('colorful-menu').setup({})
@@ -51,34 +39,40 @@
           "buffer"
           "copilot"
         ];
+
         signature = {
           enabled = true;
           window.border = "single";
         };
 
         completion = {
+          ghost_text.enabled = true;
+          documentation = {
+            auto_show = true;
+            auto_show_delay_ms = 500;
+            window.border = "single";
+          };
+
           menu = {
             border = "single";
+
             draw = {
               columns = [
                 [
                   "kind_icon"
                   "label"
-                  "label_description"
                 ]
                 [
                   "kind"
                 ]
               ];
-              components = {
-                label = {
-                  text.__raw = "function(ctx) return require('colorful-menu').blink_components_text(ctx) end";
-                  highlight.__raw = "function(ctx) return require('colorful-menu').blink_components_highlight(ctx) end";
-                };
+
+              components.label = {
+                text.__raw = "function(ctx) return require('colorful-menu').blink_components_text(ctx) end";
+                highlight.__raw = "function(ctx) return require('colorful-menu').blink_components_highlight(ctx) end";
               };
             };
           };
-          documentation.window.border = "single";
           list.selection = {
             preselect = false;
             auto_insert = true;
