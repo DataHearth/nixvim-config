@@ -40,15 +40,6 @@
 
     blink-cmp = {
       enable = true;
-      package = pkgs.vimPlugins.blink-cmp.overrideAttrs (oldAttrs: {
-        version = "0.12.0-not-released";
-        src = pkgs.fetchFromGitHub {
-          owner = "Saghen";
-          repo = "blink.cmp";
-          rev = "9f32ef5c3bb44f943238bbcde0c467936475f177"; # Fix a duplication of snippets when using luasnip preset
-          hash = "sha256-1arLnPBGRzz7NbNNyRqVPjp5kKU4/g+2Qtd6N7+55TU=";
-        };
-      });
 
       settings = {
         snippets.preset = "luasnip";
@@ -73,7 +64,7 @@
                 [
                   "kind_icon"
                   "label"
-                  # "label_description"
+                  "label_description"
                 ]
                 [
                   "kind"
