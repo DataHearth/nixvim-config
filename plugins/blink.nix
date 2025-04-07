@@ -39,6 +39,7 @@
           "buffer"
           "copilot"
         ];
+        cmdline.enabled = false;
 
         signature = {
           enabled = true;
