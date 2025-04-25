@@ -57,8 +57,8 @@
               nixfmt-rfc-style
 
               # conform-nvim - JS/TS/HTML/CSS tools
-              # nodePackages.prettier
-              # eslint_d
+              nodePackages.prettier
+              eslint_d
               deno
 
               # conform-nvim - TOML tools

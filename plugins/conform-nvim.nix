@@ -51,28 +51,10 @@
             "shellcheck"
           ];
           js = [
-            "deno_fmt"
-            # "deno_lint" # Disabled because it blocks deno_fmt
+            "prettier"
+            "eslint_d"
           ];
         in
-        # In case I want to use a function to determine the formatters
-        # js = ''
-        #   function(bufnr)
-        #     local ft = vim.bo[bufnr].filetype
-        #
-        #     local deno_project = vim.fs.find({ "deno.json", "deno.jsonc" }, { upward = true, path = vim.fn.expand("%:p:h") })[1]
-        #
-        #     if (ft == "json" or ft == "html" or ft == "css") and not deno_project then
-        #       return { "prettier" }
-        #     end
-        #
-        #     if deno_project then
-        #       return { "deno_fmt", "deno_lint" }
-        #     end
-        #
-        #     return { "prettier", "eslint_d" }
-        #   end
-        # '';
         {
           sh = shell;
           bash = shell;
@@ -87,9 +69,9 @@
             "gofumpt"
             "golines"
           ];
-          css = [ "deno_fmt" ];
-          html = [ "deno_fmt" ];
-          json = [ "deno_fmt" ];
+          css = [ "prettier" ];
+          html = [ "prettier" ];
+          json = [ "prettier" ];
           nix = [ "nixfmt" ];
           python = [ "ruff_format" ];
           rust = [ "rustfmt" ];
