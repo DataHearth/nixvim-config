@@ -4,46 +4,6 @@
 
     settings = {
       log_level = "error";
-      formatters = {
-        deno_lint = {
-          command = "deno";
-          cond.__raw = ''
-            function(self, ctx)
-              local extensions = {
-                astro = "astro",
-                svelte = "svelte",
-                vue = "vue",
-                javascript = "js",
-                javascriptreact = "jsx",
-                typescript = "ts",
-                typescriptreact = "tsx",
-              }
-
-              return extensions[vim.bo[ctx.buf].filetype] ~= nil
-            end
-          '';
-          args.__raw = ''
-            function(self, ctx)
-              local extensions = {
-                astro = "astro",
-                svelte = "svelte",
-                vue = "vue",
-                javascript = "js",
-                javascriptreact = "jsx",
-                typescript = "ts",
-                typescriptreact = "tsx",
-              }
-
-              return {
-                "lint",
-                "--fix",
-                "--ext="..extensions[vim.bo[ctx.buf].filetype],
-                "-",
-              }
-            end
-          '';
-        };
-      };
       formatters_by_ft =
         let
           shell = [
