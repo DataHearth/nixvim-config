@@ -1,15 +1,12 @@
 { pkgs, ... }:
 {
   plugins = {
-    copilot-lua.enable = true;
     dressing.enable = true;
     nui.enable = true;
 
     avante = {
       enable = true;
       settings = {
-        provider = "copilot";
-        auto_suggestions_frequency = "copilot";
       };
     };
 
