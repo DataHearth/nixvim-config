@@ -45,6 +45,9 @@
             };
 
             environment.systemPackages = with pkgs; [
+              # C Compiler
+              gccgo
+
               # conform-nvim - Golang tools
               gofumpt
               golines
