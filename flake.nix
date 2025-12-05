@@ -33,6 +33,51 @@
         };
 
       flake = {
+        homeModules.default =
+          { pkgs, ... }:
+          {
+            imports = [ nixvim.homeModules.nixvim ];
+
+            programs.nixvim = {
+              imports = [ ./config.nix ];
+              enable = true;
+              defaultEditor = true;
+            };
+
+            home.packages = with pkgs; [
+              # C Compiler
+              gccgo
+
+              # conform-nvim - Golang tools
+              gofumpt
+              golines
+              go-tools
+
+              # conform-nvim - Lua tools
+              stylua
+
+              # conform-nvim - Nix tools
+              nixfmt-rfc-style
+
+              # conform-nvim - JS/TS/HTML/CSS tools
+              nodePackages.prettier
+              eslint_d
+              deno
+
+              # conform-nvim - TOML tools
+              taplo
+
+              # conform-nvim - Python tools
+              ruff
+
+              # conform-nvim - SHish tools
+              shfmt
+              shellcheck
+
+              # conform-nvim - SQL tools
+              sqlfluff
+            ];
+          };
         nixosModules.default =
           { pkgs, ... }:
           {

@@ -28,22 +28,18 @@
   plugins = {
     barbecue.enable = true; # Symbol bar
     bufferline.enable = true;
-    chadtree.enable = true; # Tree navigation
     comment.enable = true; # Comment code
     crates.enable = true; # Crate auto-complete and verification
     diffview.enable = true; # Git diff view
     earthly.enable = true;
     illuminate.enable = true; # Highlight words
     indent-blankline.enable = true;
-    lazygit.enable = true;
     lualine.enable = true; # Status line
-    neogit.enable = true;
     nix.enable = true;
     nvim-autopairs.enable = true; # Auto close symbols
     todo-comments.enable = true; # Comments highlighting
     ts-autotag.enable = true;
     web-devicons.enable = true;
-    which-key.enable = true;
     yazi.enable = true;
   };
 }
